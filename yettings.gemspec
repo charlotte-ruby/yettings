@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yettings}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["cowboycoded"]
@@ -26,54 +26,6 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/yettings.rb",
     "lib/yettings/railtie.rb",
-    "test_app/.gitignore",
-    "test_app/.rspec",
-    "test_app/Gemfile",
-    "test_app/README",
-    "test_app/Rakefile",
-    "test_app/app/controllers/application_controller.rb",
-    "test_app/app/controllers/yettings_controller.rb",
-    "test_app/app/helpers/application_helper.rb",
-    "test_app/app/views/layouts/application.html.erb",
-    "test_app/app/views/yettings/test.html.erb",
-    "test_app/config.ru",
-    "test_app/config/application.rb",
-    "test_app/config/boot.rb",
-    "test_app/config/database.yml",
-    "test_app/config/environment.rb",
-    "test_app/config/environments/development.rb",
-    "test_app/config/environments/production.rb",
-    "test_app/config/environments/test.rb",
-    "test_app/config/initializers/backtrace_silencers.rb",
-    "test_app/config/initializers/inflections.rb",
-    "test_app/config/initializers/mime_types.rb",
-    "test_app/config/initializers/secret_token.rb",
-    "test_app/config/initializers/session_store.rb",
-    "test_app/config/locales/en.yml",
-    "test_app/config/routes.rb",
-    "test_app/config/yetting.yml",
-    "test_app/config/yettings/hendrix.yml",
-    "test_app/config/yettings/jimi.yml",
-    "test_app/db/seeds.rb",
-    "test_app/lib/tasks/.gitkeep",
-    "test_app/public/404.html",
-    "test_app/public/422.html",
-    "test_app/public/500.html",
-    "test_app/public/favicon.ico",
-    "test_app/public/images/rails.png",
-    "test_app/public/index.html",
-    "test_app/public/javascripts/application.js",
-    "test_app/public/javascripts/controls.js",
-    "test_app/public/javascripts/dragdrop.js",
-    "test_app/public/javascripts/effects.js",
-    "test_app/public/javascripts/prototype.js",
-    "test_app/public/javascripts/rails.js",
-    "test_app/public/robots.txt",
-    "test_app/public/stylesheets/.gitkeep",
-    "test_app/script/rails",
-    "test_app/spec/spec_helper.rb",
-    "test_app/spec/yettings_spec.rb",
-    "test_app/vendor/plugins/.gitkeep",
     "yettings.gemspec"
   ]
   s.homepage = %q{http://github.com/cowboycoded/yettings}
