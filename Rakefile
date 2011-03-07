@@ -15,14 +15,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "yettings"
   gem.homepage = "http://github.com/cowboycoded/yettings"
   gem.license = "MIT"
-  gem.summary = %Q{YML Settings}
-  gem.description = %Q{Create settings/contants for your Rails 3 app using yml}
+  gem.summary = %Q{YAML Settings}
+  gem.description = %Q{Create settings/contants for your Rails 3 app using yml key/value pairs}
   gem.email = "john.mcaliley@gmail.com"
   gem.authors = ["cowboycoded"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
 end
 Jeweler::RubygemsDotOrgTasks.new
 

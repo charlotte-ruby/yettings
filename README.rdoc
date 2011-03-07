@@ -1,6 +1,59 @@
 = yettings
 
-Description goes here.
+YAML settings for your Rails 3 app.  
+
+== What does it do?
+
+Yettings allows you to add a yml file to your "config" directory and you can access the values defined in the YAML in your Rails app.  You can 
+use this to store API keys, constants, and other key/value pairs.  This plugin was heavily inspired by settingslogic, with a few differences... You don't 
+have to add a class and point to the YML file.  The Yetting class will be created dynamically and will be available to your Rails app.  This plugin is also 
+more basic than settingslogic.  It does not have support for dynamic setting creation... only the values in the yetting.yml will be available.
+
+== Usage
+
+*Adding the YAML file with your key/value pairs*
+1. Create a YAML file inside /your_rails_app/config called yetting.yaml
+2. If you want to namespace your Yettings, create a YAML file inside /your_rails_app/config/yettings/ and call it whatever you want.  
+
+*YAML format*
+You can define key/value pairs in the YAML file and these will be available in your app.  You can set the defaults and any environment specific values.  
+The file must contain each environment that you will use in your Rails app.  Here is a sample:
+
+    defaults: &defaults
+	  api_key: asdf12345lkj
+	  some_number: 999
+	  an_erb_yetting: <%= "erb stuff works" %>
+	  some_array:
+	    - element1
+	    - element2
+
+	development:
+	  <<: *defaults
+	  api_key: api key for dev
+
+	test:
+	  <<: *defaults
+
+	production:
+	  <<: *defaults
+    
+In the above example, you can define the key/value pair using strings, numbers, erb code, or arrays.  Notice that the "api_key" in the development environment
+will override the "api_key" from defaults.
+
+*Accessing the values in your Rails app*
+
+You simply call the Yetting class or the namespaced class.  For namespaced yml files, Yettings will convert the filename in /your_rails_app/config/yettings/ 
+to a class name and append Yetting.  So if you have main.yml, then it will use MainYetting as the classname.  Then you can call the key that you put in the 
+YAML as a class method.  Here are 2 examples:
+
+    #/your_rails_app/config/yetting.yml in production
+    Yetting.some_number #=> 999
+    Yetting.api_key #=> "asdf12345lkj"
+
+    #/your_rails_app/config/yettings/main.yml
+    MainYetting.some_number #=> 999
+    MainYetting.some_array #=> ["element1","element2"]
+
 
 == Contributing to yettings
  
@@ -9,7 +62,7 @@ Description goes here.
 * Fork the project
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Make sure to add tests for it. I will not even look at patches without a test included.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 == Copyright

@@ -1,0 +1,11 @@
+defaults: &defaults
+  yetting1: jimi
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
