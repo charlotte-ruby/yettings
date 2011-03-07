@@ -73,7 +73,8 @@ Gem::Specification.new do |s|
     "test_app/script/rails",
     "test_app/spec/spec_helper.rb",
     "test_app/spec/yettings_spec.rb",
-    "test_app/vendor/plugins/.gitkeep"
+    "test_app/vendor/plugins/.gitkeep",
+    "yettings.gemspec"
   ]
   s.homepage = %q{http://github.com/cowboycoded/yettings}
   s.licenses = ["MIT"]
