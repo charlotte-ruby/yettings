@@ -53,5 +53,10 @@ describe Yettings do
       e.message.should =~ /whatwhat is not defined in Yetting/
     end
   end
-end
   
+  it "should print the performance of setup method" do
+    start = Time.now
+    Yettings.setup! 
+    puts "Load time for Yettings.setup! = #{Time.now - start} seconds"
+  end
+end

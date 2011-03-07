@@ -11,11 +11,12 @@ more basic than settingslogic.  It does not have support for dynamic setting cre
 
 == Usage
 
-*Adding the YAML file with your key/value pairs*
+===Adding the YAML file with your key/value pairs
+
 1. Create a YAML file inside /your_rails_app/config called yetting.yaml
 2. If you want to namespace your Yettings, create a YAML file inside /your_rails_app/config/yettings/ and call it whatever you want.  
 
-*YAML format*
+===YAML file content
 You can define key/value pairs in the YAML file and these will be available in your app.  You can set the defaults and any environment specific values.  
 The file must contain each environment that you will use in your Rails app.  Here is a sample:
 
@@ -37,14 +38,14 @@ The file must contain each environment that you will use in your Rails app.  Her
 	production:
 	  <<: *defaults
     
-In the above example, you can define the key/value pair using strings, numbers, erb code, or arrays.  Notice that the "api_key" in the development environment
-will override the "api_key" from defaults.
+In the above example, you can define the key/value pair using strings, numbers, erb code, or arrays.  Notice that the "api_key" in the development 
+environment will override the "api_key" from defaults.
 
-*Accessing the values in your Rails app*
+===Accessing the values in your Rails app
 
-You simply call the Yetting class or the namespaced class.  For namespaced yml files, Yettings will convert the filename in /your_rails_app/config/yettings/ 
-to a class name and append Yetting.  So if you have main.yml, then it will use MainYetting as the classname.  Then you can call the key that you put in the 
-YAML as a class method.  Here are 2 examples:
+You simply call the Yetting class or the namespaced class and the key as a class method.  For namespaced yml files, Yettings will convert the filename in 
+/your_rails_app/config/yettings/ to a class name and append Yetting.  So if you have main.yml, then it will use MainYetting as the class name.  
+Then you can call the key that you put in the YAML as a class method.  Here are 2 examples:
 
     #/your_rails_app/config/yetting.yml in production
     Yetting.some_number #=> 999

@@ -19,6 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Create settings/contants for your Rails 3 app using yml key/value pairs}
   gem.email = "john.mcaliley@gmail.com"
   gem.authors = ["cowboycoded"]
+  gem.files.exclude 'test_app'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
