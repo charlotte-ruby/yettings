@@ -13,13 +13,14 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "yettings"
-  gem.homepage = "http://github.com/cowboycoded/yettings"
+  gem.homepage = "http://github.com/charlotte-ruby/yettings"
   gem.license = "MIT"
   gem.summary = %Q{YAML Settings}
   gem.description = %Q{Create settings/contants for your Rails 3 app using yml key/value pairs}
   gem.email = "john.mcaliley@gmail.com"
   gem.authors = ["cowboycoded"]
-  gem.files.exclude 'test_app'
+  gem.files.exclude 'test_app/**/*'
+  gem.files.exclude 'test_app/**/.*'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
