@@ -25,7 +25,14 @@ module Yettings
       klass_name = "#{klass_name}Yetting" unless klass_name=="Yetting"
       klass = Object.const_set(klass_name,Class.new)
       hash.each do |key,value|
-        klass.define_singleton_method(key){ value }
+        klass.class_eval do
+         class_variable_set("@@#{key}",value)
+        end
+        klass.class_eval %Q{
+          def self.#{key}
+            @@#{key}
+          end
+        }
       end
       klass.class_eval do
         def self.method_missing(method_id,*args)
