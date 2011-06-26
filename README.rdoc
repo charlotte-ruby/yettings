@@ -13,6 +13,13 @@ more basic than settingslogic.  It does not have support for dynamic setting cre
 
 There is a branch for 1.8.7, but it has not been merged into master. If you want to use it, you can reference the github location and branch in your Gemfile. See the issue tracker for more details
 
+== Known bug in YAML psych parser
+This bug can cause issues loading the YAML keys when using Yettings.  The workaround is to set your YAML parser to sych if your environment is currently using psych:  
+
+    YAML::ENGINE.yamler = "syck"  
+
+More info here:  http://pivotallabs.com/users/mkocher/blog/articles/1692-yaml-psych-and-ruby-1-9-2-p180-here-there-be-dragons
+I am assuming there will be a psych fix for this in the near future. 
 
 == Usage
 
