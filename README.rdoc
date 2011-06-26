@@ -19,7 +19,8 @@ This bug can cause issues loading the YAML keys when using Yettings.  The workar
     YAML::ENGINE.yamler = "syck"  
 
 More info here:  http://pivotallabs.com/users/mkocher/blog/articles/1692-yaml-psych-and-ruby-1-9-2-p180-here-there-be-dragons
-I am assuming there will be a psych fix for this in the near future. 
+
+This issue is fixed in ruby-1.9.2-p271.
 
 == Usage
 
