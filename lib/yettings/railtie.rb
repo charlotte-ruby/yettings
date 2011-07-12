@@ -3,7 +3,7 @@ require 'yettings'
 
 module Yettings
   class Railtie < Rails::Railtie
-    initializer "yettings.setup!" do
+    config.before_configuration do
       Yettings.setup!
     end
   end
