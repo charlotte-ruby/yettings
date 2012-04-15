@@ -34,7 +34,7 @@ Install with Bundler
 
 ===Adding the YAML file with your key/value pairs
 
-1. Create a YAML file inside /your_rails_app/config called yetting.yaml
+1. Create a YAML file inside /your_rails_app/config called yetting.yml
 2. If you want to namespace your Yettings, create a YAML file inside /your_rails_app/config/yettings/ and call it whatever you want.  
 
 ===YAML file content
