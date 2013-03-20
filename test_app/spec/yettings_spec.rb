@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Yettings do
   YETTINGS_DIR = "#{Rails.root}/config/yettings"
   YETTING_FILE = "#{Rails.root}/config/yetting.yml"
+  BLANK_YETTING_FILE = "#{Rails.root}/config/yettings/blank.yml"
 
   it "should load yettings in the rails app" do
     assert defined?(Yettings)
@@ -14,21 +15,27 @@ describe Yettings do
     FileUtils.mv("#{YETTINGS_DIR}_tmp",YETTINGS_DIR) if File.directory?("#{YETTINGS_DIR}_tmp")
   end
 
-  it "should find main and 2 yettings dir files" do
-    Yettings.find_ymls.sort.should eq ["#{Rails.root}/config/yetting.yml",
+  it "should find main and 3 yettings dir files" do
+    Yettings.find_ymls.should eq ["#{Rails.root}/config/yetting.yml",
+                                  "#{Rails.root}/config/yettings/blank.yml",
                                   "#{Rails.root}/config/yettings/hendrix.yml",
                                   "#{Rails.root}/config/yettings/jimi.yml"].sort
   end
 
-  it "should find 2 yettings dir files if there is no main file" do
+  it "should find 3 yettings dir files if there is no main file" do
     FileUtils.mv("#{YETTING_FILE}","#{YETTING_FILE}_tmp") if File.exists?("#{YETTING_FILE}")
-    Yettings.find_ymls.sort.should eq ["#{Rails.root}/config/yettings/hendrix.yml",
-                                  "#{Rails.root}/config/yettings/jimi.yml"].sort
+    Yettings.find_ymls.should eq ["#{Rails.root}/config/yettings/blank.yml",
+                                  "#{Rails.root}/config/yettings/hendrix.yml",
+                                  "#{Rails.root}/config/yettings/jimi.yml"]
     FileUtils.mv("#{YETTING_FILE}_tmp","#{YETTING_FILE}") if File.exists?("#{YETTING_FILE}_tmp")
   end
 
   it "should load the yml and return hash" do
     Yettings.load_yml("#{YETTING_FILE}").should eq "yetting1"=>"what", "yetting2"=>999, "yetting3"=>"this is erb", "yetting4"=>["element1", "element2"]
+  end
+
+  it "should continue gracefully given blank yettings file" do
+    Yettings.load_yml("#{BLANK_YETTING_FILE}").should == {}
   end
 
   it "should create the classes and class methods" do

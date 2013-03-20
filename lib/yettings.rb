@@ -33,7 +33,7 @@ module Yettings
           end
         end
         klass.instance_variable_set("@#{key}",value)
-      end
+      end unless hash.nil?
       klass.class_eval do
         def self.method_missing(method_id,*args)
           raise UndefinedYetting, "#{method_id} is not defined in #{self.to_s}"
@@ -43,7 +43,7 @@ module Yettings
 
     def load_yml(yml_file)
       erb = ERB.new(File.read(yml_file)).result
-      YAML.load(erb).to_hash[Rails.env]
+      erb.present? ? YAML.load(erb).to_hash[Rails.env] : {}
     end
   end # class << self
 end

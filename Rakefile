@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "john.mcaliley@gmail.com"
   gem.authors = ["johnmcaliley"]
   gem.files.exclude 'test_app/**/*'
-  gem.files.exclude 'test_app/**/.*'  
+  gem.files.exclude 'test_app/**/.*'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -37,7 +37,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
