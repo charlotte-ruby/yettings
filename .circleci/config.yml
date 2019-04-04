@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.2
+        environment:
+          RAILS_ENV: test
+    steps:
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - run:
+          name: Bundle Install test_app
+          command: cd test_app; bundle check || bundle install
+      - run:
+          name: Run rspec
+          command: |
+            cd test_app
+            pwd
+            ls -l
+            bundle exec rspec spec

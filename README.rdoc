@@ -91,3 +91,4 @@ Then you can call the key that you put in the YAML as a class method.  Here are 
 
 Copyright (c) 2011 cowboycoded. See LICENSE.txt for
 further details.
+

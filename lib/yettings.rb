@@ -11,14 +11,14 @@ module Yettings
         create_yetting_class(yml)
       end
     end
-  
+
     def find_ymls
       main_file = "#{Rails.root.to_s}/config/yetting.yml"
       yettings_main_file = File.exists?(main_file) ? [main_file] : []
-      yettings_namespaced_files = Dir.glob("#{Rails.root.to_s}/config/yettings/**/*.yml")
+      yettings_namespaced_files = Dir.glob("#{Rails.root.to_s}/config/yettings/**/*.yml").sort
       yettings_main_file.concat(yettings_namespaced_files)
     end
-  
+
     def create_yetting_class(yml_file)
       hash = load_yml(yml_file)
       klass_name = File.basename(yml_file).gsub(".yml","").camelize
@@ -33,7 +33,7 @@ module Yettings
         end
       end
     end
-  
+
     def load_yml(yml_file)
       erb = ERB.new(File.read(yml_file)).result
       erb.present? ? YAML.load(erb).to_hash[Rails.env] : {}
