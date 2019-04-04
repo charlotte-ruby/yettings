@@ -1,5 +1,7 @@
 = yettings
 
+{<img src="https://circleci.com/gh/charlotte-ruby/yettings.svg?style=svg&circle-token=e8a60b2909ea85f91f0cfef9a27b512989109ca3" alt="CircleCI" />}[https://circleci.com/gh/charlotte-ruby/yettings]
+
 YAML settings for your Rails 3 app.  
 
 == What does it do?
