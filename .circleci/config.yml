@@ -1,0 +1,28 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    parallelism: 3 # run three instances of this job in parallel
+    docker: # run the steps with Docker
+      - image: circleci/ruby:2.6.2
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          RAILS_ENV: test
+    steps: # a collection of executable commands
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - run:
+          name: Bundle Install test_app
+          command: cd test_app; bundle check || bundle install
+      - run:
+          name: Run rspec in parallel
+          command: |
+            cd test_app
+            pwd
+            ls -l
+            bundle exec rspec spec
