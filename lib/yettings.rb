@@ -26,7 +26,7 @@ module Yettings
       klass = Object.const_set(klass_name,Class.new)
       hash.each do |key,value|
         klass.define_singleton_method(key){ value }
-      end
+      end unless hash.nil?
       klass.class_eval do
         def self.method_missing(method_id,*args)
           raise UndefinedYetting, "#{method_id} is not defined in #{self.to_s}"
