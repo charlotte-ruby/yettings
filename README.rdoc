@@ -2,13 +2,13 @@
 
 {<img src="https://circleci.com/gh/charlotte-ruby/yettings.svg?style=svg&circle-token=e8a60b2909ea85f91f0cfef9a27b512989109ca3" alt="CircleCI" />}[https://circleci.com/gh/charlotte-ruby/yettings]
 
-YAML settings for your Rails 3 app.  
+YAML settings for your Rails 3 app.
 
 == What does it do?
 
-Yettings allows you to add a yml file to your "config" directory and you can access the values defined in the YAML in your Rails app.  You can 
-use this to store API keys, constants, and other key/value pairs.  This plugin was heavily inspired by settingslogic, with a few differences... You don't 
-have to add a class and point to the YML file.  The Yetting class will be created dynamically and will be available to your Rails app.  This plugin is also 
+Yettings allows you to add a yml file to your "config" directory and you can access the values defined in the YAML in your Rails app.  You can
+use this to store API keys, constants, and other key/value pairs.  This plugin was heavily inspired by settingslogic, with a few differences... You don't
+have to add a class and point to the YML file.  The Yetting class will be created dynamically and will be available to your Rails app.  This plugin is also
 more basic than settingslogic.  It does not have support for dynamic setting creation... only the values in the yetting.yml will be available.
 
 == This project only supports Rails 3 and Ruby 1.9.2
@@ -16,9 +16,9 @@ more basic than settingslogic.  It does not have support for dynamic setting cre
 There is a branch for 1.8.7, but it has not been merged into master. If you want to use it, you can reference the github location and branch in your Gemfile. See the issue tracker for more details
 
 == Known bug in YAML psych parser
-This bug can cause issues loading the YAML keys when using Yettings.  The workaround is to set your YAML parser to sych if your environment is currently using psych:  
+This bug can cause issues loading the YAML keys when using Yettings.  The workaround is to set your YAML parser to sych if your environment is currently using psych:
 
-    YAML::ENGINE.yamler = "syck"  
+    YAML::ENGINE.yamler = "syck"
 
 More info here:  http://pivotallabs.com/users/mkocher/blog/articles/1692-yaml-psych-and-ruby-1-9-2-p180-here-there-be-dragons
 
@@ -37,10 +37,10 @@ Install with Bundler
 ===Adding the YAML file with your key/value pairs
 
 1. Create a YAML file inside /your_rails_app/config called yetting.yml
-2. If you want to namespace your Yettings, create a YAML file inside /your_rails_app/config/yettings/ and call it whatever you want.  
+2. If you want to namespace your Yettings, create a YAML file inside /your_rails_app/config/yettings/ and call it whatever you want.
 
 ===YAML file content
-You can define key/value pairs in the YAML file and these will be available in your app.  You can set the defaults and any environment specific values.  
+You can define key/value pairs in the YAML file and these will be available in your app.  You can set the defaults and any environment specific values.
 The file must contain each environment that you will use in your Rails app.  Here is a sample:
 
   defaults: &defaults
@@ -60,14 +60,14 @@ The file must contain each environment that you will use in your Rails app.  Her
 
   production:
     <<: *defaults
-    
-In the above example, you can define the key/value pair using strings, numbers, erb code, or arrays.  Notice that the "api_key" in the development 
+
+In the above example, you can define the key/value pair using strings, numbers, erb code, or arrays.  Notice that the "api_key" in the development
 environment will override the "api_key" from defaults.
 
 ===Accessing the values in your Rails app
 
-You simply call the Yetting class or the namespaced class and the key as a class method.  For namespaced yml files, Yettings will convert the filename in 
-/your_rails_app/config/yettings/ to a class name and append Yetting.  So if you have main.yml, then it will use MainYetting as the class name.  
+You simply call the Yetting class or the namespaced class and the key as a class method.  For namespaced yml files, Yettings will convert the filename in
+/your_rails_app/config/yettings/ to a class name and append Yetting.  So if you have main.yml, then it will use MainYetting as the class name.
 Then you can call the key that you put in the YAML as a class method.  Here are 2 examples:
 
   #/your_rails_app/config/yetting.yml in production
@@ -80,7 +80,7 @@ Then you can call the key that you put in the YAML as a class method.  Here are 
 
 
 == Contributing to yettings
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
